@@ -11,7 +11,7 @@ final class ProcSelfFd
         $fds = @\scandir(self::PATH, \SCANDIR_SORT_NONE);
 
         if ($fds === false) {
-            throw new \Exception(\error_get_last()['mesage']);
+            throw new \Exception('Enable to list file descriptors: ' . \print_r(\error_get_last(), true));
         }
 
         foreach ($fds as $id) {
