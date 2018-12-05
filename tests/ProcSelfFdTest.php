@@ -14,6 +14,6 @@ final class ProcSelfFdTest extends TestCase
     public function testList(): void
     {
         $fds = iteratorOrArrayToArray(ProcSelfFd::list());
-        self::assertCount(9, $fds);
+        self::assertTrue(\count($fds) >= 3, 'Assuming to have at least 3 open file descriptors (STDIN, STDOUT, and STDERR)');
     }
 }
