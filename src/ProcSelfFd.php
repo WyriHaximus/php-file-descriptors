@@ -8,16 +8,6 @@ final class ProcSelfFd
 
     public static function list(): iterable
     {
-        $fds = @\scandir(self::PATH, \SCANDIR_SORT_NONE);
-
-        if ($fds === false) {
-            throw new \Exception('Enable to list file descriptors: ' . \print_r(\error_get_last(), true));
-        }
-
-        foreach ($fds as $id) {
-            if (!\in_array($id, ['.', '..'], true)) {
-                yield $id;
-            }
-        }
+        yield from ScanDir::scan(self::PATH);
     }
 }
