@@ -13,7 +13,13 @@ final class ProcSelfFdTest extends TestCase
 {
     public function testList(): void
     {
-        $fds = iteratorOrArrayToArray(ProcSelfFd::list());
+        $psf = new ProcSelfFd();
+
+        if ($psf->isSupported() === false) {
+            $this->markTestSkipped('OS/env/set up not supported');
+        }
+
+        $fds = iteratorOrArrayToArray($psf->list());
         self::assertTrue(\count($fds) >= 3, 'Assuming to have at least 3 open file descriptors (STDIN, STDOUT, and STDERR)');
     }
 }
