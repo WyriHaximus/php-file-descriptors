@@ -4,5 +4,13 @@ namespace WyriHaximus\FileDescriptors;
 
 interface ListerInterface
 {
-    public static function list(): iterable;
+    /**
+     * Return an iterable containing a list of open file descriptors for the current process.
+     */
+    public function list(): iterable;
+
+    /**
+     * Return false when the current OS/env/set up isn't supported, return true when it is.
+     */
+    public function isSupported(): bool;
 }
