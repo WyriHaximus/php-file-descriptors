@@ -13,6 +13,7 @@ matrix:
         - qaExtended=true
     - os: osx
       osx_image: xcode7.3
+      language: generic
       env:
         - qaExtended=true
         - _OSX=10.11
@@ -28,6 +29,7 @@ matrix:
       osx_image: xcode7.3
       env:
         - dependencies=lowest
+        - language: generic
         - _OSX=10.11
         - _PHP: php72
     - php: 7.3
@@ -42,6 +44,7 @@ matrix:
         - dependencies=highest
     - os: osx
       osx_image: xcode7.3
+      language: generic
       env:
         - dependencies=highest
         - _OSX=10.11
