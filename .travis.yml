@@ -24,6 +24,13 @@ matrix:
     - php: 7.2
       env:
         - dependencies=lowest
+    - os: osx
+      osx_image: xcode10.1
+      language: generic
+      env:
+        - dependencies=lowest
+        - qaExtended=false
+        - dropPlatform=false
     - php: 7.3
       env:
         - dependencies=lowest
