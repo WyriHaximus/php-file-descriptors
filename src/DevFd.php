@@ -4,7 +4,7 @@ namespace WyriHaximus\FileDescriptors;
 
 use Tivie\OS\Detector;
 
-final class DevFd
+final class DevFd implements ListerInterface
 {
     private const PATH = '/dev/fd';
 
