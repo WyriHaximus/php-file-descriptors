@@ -14,9 +14,6 @@ matrix:
     - os: osx
       osx_image: xcode10.1
       language: generic
-      env:
-        - qaExtended=false
-        - dropPlatform=false
     - php: 7.3
     - php: nightly
       env:
@@ -29,8 +26,6 @@ matrix:
       language: generic
       env:
         - dependencies=lowest
-        - qaExtended=false
-        - dropPlatform=false
     - php: 7.3
       env:
         - dependencies=lowest
@@ -46,8 +41,6 @@ matrix:
       language: generic
       env:
         - dependencies=highest
-        - qaExtended=false
-        - dropPlatform=false
     - php: 7.3
       env:
         - dependencies=highest
@@ -63,9 +56,9 @@ before_install:
 install:
   - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/handle_brew_pkg.sh "php@7.2" ; fi
   - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/handle_brew_pkg.sh composer ; fi
-  - if [ "$qaExtended" = "true" ]; then composer validate; fi;
-  - if [ -z "$dropPlatform" ]; then composer config --unset platform.php; fi;
-  - if [ -z "$qaExtended" ]; then phpenv config-rm xdebug.ini || :; fi;
+  - if [[ "${TRAVIS_OS_NAME}" != "osx"  ]]; then composer validate; fi;
+  - if [[ -z "$dropPlatform" || "${TRAVIS_OS_NAME}" != "osx" ]]; then composer config --unset platform.php; fi;
+  - if [[ -z "$qaExtended" || "${TRAVIS_OS_NAME}" != "osx" ]]; then phpenv config-rm xdebug.ini || :; fi;
   - if [ -z "$dependencies" ]; then composer install --prefer-dist; fi;
   - if [ "$dependencies" = "lowest" ]; then composer update --prefer-lowest --prefer-dist -n; fi;
   - if [ "$dependencies" = "highest" ]; then composer update --prefer-dist -n; fi;
@@ -73,7 +66,7 @@ install:
 
 ## Run the actual test
 script:
-  - if [[ -z "$qaExtended" || "$qaExtended" = "false" ]]; then make ci; fi;
+  - if [ -z "$qaExtended" ]; then make ci; fi;
   - if [ "$qaExtended" = "true" ]; then make ci-extended; fi;
 
 ## Gather coverage and set it to coverage servers
