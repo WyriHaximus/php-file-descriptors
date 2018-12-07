@@ -15,7 +15,6 @@ matrix:
       osx_image: xcode10.1
       language: generic
       env:
-        - qaExtended=true
         - _OSX=10.13
     - php: 7.3
     - php: nightly
