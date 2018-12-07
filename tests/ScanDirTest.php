@@ -14,9 +14,10 @@ final class ScanDirTest extends TestCase
     public function testScan(): void
     {
         $fds = iteratorOrArrayToArray(ScanDir::scan(__DIR__));
-        self::assertCount(3, $fds);
+        self::assertCount(4, $fds);
         \sort($fds);
         self::assertSame([
+            'DevFdTest.php',
             'FactoryTest.php',
             'ProcSelfFdTest.php',
             'ScanDirTest.php',
