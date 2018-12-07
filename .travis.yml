@@ -17,7 +17,6 @@ matrix:
       env:
         - qaExtended=true
         - _OSX=10.13
-        - _PHP: php72
     - php: 7.3
     - php: nightly
       env:
@@ -41,7 +40,6 @@ matrix:
       env:
         - dependencies=highest
         - _OSX=10.13
-        - _PHP: php72
     - php: 7.3
       env:
         - dependencies=highest
