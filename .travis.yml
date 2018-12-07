@@ -54,7 +54,7 @@ before_install:
 
 ## Install or update dependencies
 install:
-  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/handle_brew_pkg.sh php ; fi
+  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/handle_brew_pkg.sh "php@7.2" ; fi
   - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/handle_brew_pkg.sh composer ; fi
   - if [ "$qaExtended" = "true" ]; then composer validate; fi;
   - if [ -z "$dropPlatform" ]; then composer config --unset platform.php; fi;
