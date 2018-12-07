@@ -57,8 +57,13 @@ matrix:
         - dependencies=highest
         - dropPlatform=false
 
+before_install:
+  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/prepare_osx_env.sh ; fi
+
 ## Install or update dependencies
 install:
+  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/handle_brew_pkg.sh "${_PHP}" ; fi
+  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/osx_install_composer.sh "${_PHP}" ; fi
   - composer validate
   - if [ -z "$dropPlatform" ]; then composer config --unset platform.php; fi;
   - if [ -z "$qaExtended" ]; then phpenv config-rm xdebug.ini || :; fi;
