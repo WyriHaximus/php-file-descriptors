@@ -15,6 +15,7 @@ matrix:
       osx_image: xcode10.1
       language: generic
       env:
+        - qaExtended=false
         - _OSX=10.13
     - php: 7.3
     - php: nightly
@@ -38,6 +39,7 @@ matrix:
       language: generic
       env:
         - dependencies=highest
+        - qaExtended=false
         - _OSX=10.13
     - php: 7.3
       env:
@@ -54,7 +56,7 @@ before_install:
 install:
   - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/handle_brew_pkg.sh php ; fi
   - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/handle_brew_pkg.sh composer ; fi
-  - if [ -z "$qaExtended" ]; then composer validate; fi;
+  - if [ "$qaExtended" = "false" ]; then composer validate; fi;
   - if [ -z "$dropPlatform" ]; then composer config --unset platform.php; fi;
   - if [ -z "$qaExtended" ]; then phpenv config-rm xdebug.ini || :; fi;
   - if [ -z "$dependencies" ]; then composer install --prefer-dist; fi;
