@@ -16,6 +16,7 @@ matrix:
       language: generic
       env:
         - qaExtended=false
+        - dropPlatform=false
     - php: 7.3
     - php: nightly
       env:
@@ -39,6 +40,7 @@ matrix:
       env:
         - dependencies=highest
         - qaExtended=false
+        - dropPlatform=false
     - php: 7.3
       env:
         - dependencies=highest
