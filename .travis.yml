@@ -5,6 +5,13 @@ cache:
   directories:
     - $HOME/.composer/cache/files
 
+# OS X required packages
+addons:
+  homebrew:
+    packages:
+      - php
+      - composer
+
 ## Build matrix for lowest and highest possible targets
 matrix:
   include:
@@ -44,13 +51,8 @@ matrix:
         - dependencies=highest
         - dropPlatform=false
 
-before_install:
-  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/prepare_osx_env.sh ; fi
-
 ## Install or update dependencies
 install:
-  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/handle_brew_pkg.sh "php@7.2" ; fi
-  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then /usr/bin/env bash build/handle_brew_pkg.sh composer ; fi
   - if [[ "${TRAVIS_OS_NAME}" != "osx"  ]]; then composer validate; fi;
   - if [[ -z "$dropPlatform" || "${TRAVIS_OS_NAME}" != "osx" ]]; then composer config --unset platform.php; fi;
   - if [[ -z "$qaExtended" || "${TRAVIS_OS_NAME}" != "osx" ]]; then phpenv config-rm xdebug.ini || :; fi;
