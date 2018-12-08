@@ -6,6 +6,7 @@ final class Factory
 {
     private const LISTERS = [
         ProcSelfFd::class,
+        DevFd::class,
     ];
 
     public static function create(): ListerInterface
