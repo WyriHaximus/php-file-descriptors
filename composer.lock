@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "6c65310121cd86def27f3463b8702595",
@@ -4066,23 +4066,24 @@
         },
         {
             "name": "wyrihaximus/iterator-or-array-to-array",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-iterator-or-array-to-array.git",
-                "reference": "d16250fe51deed1f3458ee95a7bbb808ecd5df77"
+                "reference": "2d8ea61e3c7affaee7deec1a0b0bdc667a3e9cc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-iterator-or-array-to-array/zipball/d16250fe51deed1f3458ee95a7bbb808ecd5df77",
-                "reference": "d16250fe51deed1f3458ee95a7bbb808ecd5df77",
+                "url": "https://api.github.com/repos/WyriHaximus/php-iterator-or-array-to-array/zipball/2d8ea61e3c7affaee7deec1a0b0bdc667a3e9cc4",
+                "reference": "2d8ea61e3c7affaee7deec1a0b0bdc667a3e9cc4",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2"
             },
             "require-dev": {
-                "api-clients/test-utilities": "^5.1"
+                "api-clients/cs-fixer-config": "^1.1",
+                "api-clients/test-utilities": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -4101,7 +4102,7 @@
                 }
             ],
             "description": "Like iterator_to_array but doesn't error when handed an array",
-            "time": "2018-10-25T15:27:42+00:00"
+            "time": "2018-12-29T20:17:57+00:00"
         }
     ],
     "aliases": [],
