@@ -12,7 +12,7 @@ final class ScanDir
         $fds = @\scandir($path, \SCANDIR_SORT_NONE);
 
         if ($fds === false) {
-            throw new \Exception('Enable to list file descriptors: ' . \print_r(\error_get_last(), true));
+            throw new \Exception('Unable to list file descriptors: ' . \print_r(\error_get_last(), true));
         }
 
         foreach ($fds as $id) {
