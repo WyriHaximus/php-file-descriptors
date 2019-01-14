@@ -21,6 +21,6 @@ final class Factory
             unset($lister);
         }
 
-        throw new \Exception('No suitable lister found');
+        throw NoCompatibleListerException::create();
     }
 }
