@@ -13,8 +13,7 @@ final class FactoryTest extends TestCase
     public function testCreate()
     {
         if (\DIRECTORY_SEPARATOR === '\\') {
-            self::expectException('WyriHaximus\FileDescriptors\NoCompatibleListerException');
-            self::expectExceptionMessage('No suitable lister found');
+            self::setExpectedException('WyriHaximus\FileDescriptors\NoCompatibleListerException', 'No suitable lister found');
         }
 
         self::assertInstanceOf('WyriHaximus\FileDescriptors\ListerInterface', Factory::create());
