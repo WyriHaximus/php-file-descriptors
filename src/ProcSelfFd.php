@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace WyriHaximus\FileDescriptors;
 
@@ -6,14 +6,14 @@ use Tivie\OS\Detector;
 
 final class ProcSelfFd implements ListerInterface
 {
-    private const PATH = '/proc/self/fd';
+    const PATH = '/proc/self/fd';
 
-    public function list(): iterable
+    public function listFileDescriptors()
     {
-        yield from ScanDir::scan(self::PATH);
+        return ScanDir::scan(self::PATH);
     }
 
-    public function isSupported(): bool
+    public function isSupported()
     {
         return (new Detector())->isUnixLike() && \file_exists(self::PATH);
     }

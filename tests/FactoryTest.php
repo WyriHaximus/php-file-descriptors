@@ -2,23 +2,21 @@
 
 namespace WyriHaximus\Tests\FileDescriptors;
 
-use ApiClients\Tools\TestUtilities\TestCase;
+use PHPUnit\Framework\TestCase;
 use WyriHaximus\FileDescriptors\Factory;
-use WyriHaximus\FileDescriptors\ListerInterface;
-use WyriHaximus\FileDescriptors\NoCompatibleListerException;
 
 /**
  * @internal
  */
 final class FactoryTest extends TestCase
 {
-    public function testCreate(): void
+    public function testCreate()
     {
         if (\DIRECTORY_SEPARATOR === '\\') {
-            self::expectException(NoCompatibleListerException::class);
+            self::expectException('WyriHaximus\FileDescriptors\NoCompatibleListerException');
             self::expectExceptionMessage('No suitable lister found');
         }
 
-        self::assertInstanceOf(ListerInterface::class, Factory::create());
+        self::assertInstanceOf('WyriHaximus\FileDescriptors\ListerInterface', Factory::create());
     }
 }

@@ -1,17 +1,16 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace WyriHaximus\Tests\FileDescriptors;
 
-use ApiClients\Tools\TestUtilities\TestCase;
+use PHPUnit\Framework\TestCase;
 use WyriHaximus\FileDescriptors\DevFd;
-use function WyriHaximus\iteratorOrArrayToArray;
 
 /**
  * @internal
  */
 final class DevFdTest extends TestCase
 {
-    public function testList(): void
+    public function testList()
     {
         $psf = new DevFd();
 
@@ -19,7 +18,6 @@ final class DevFdTest extends TestCase
             $this->markTestSkipped('OS/env/set up not supported');
         }
 
-        $fds = iteratorOrArrayToArray($psf->list());
-        self::assertTrue(\count($fds) >= 3, 'Assuming to have at least 3 open file descriptors (STDIN, STDOUT, and STDERR)');
+        self::assertTrue(\count($psf->listFileDescriptors()) >= 3, 'Assuming to have at least 3 open file descriptors (STDIN, STDOUT, and STDERR)');
     }
 }

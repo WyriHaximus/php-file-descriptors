@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace WyriHaximus\FileDescriptors;
 
@@ -6,14 +6,14 @@ use Tivie\OS\Detector;
 
 final class DevFd implements ListerInterface
 {
-    private const PATH = '/dev/fd';
+    const PATH = '/dev/fd';
 
-    public function list(): iterable
+    public function listFileDescriptors()
     {
-        yield from ScanDir::scan(self::PATH);
+        return ScanDir::scan(self::PATH);
     }
 
-    public function isSupported(): bool
+    public function isSupported()
     {
         return (new Detector())->isOSX() && \file_exists(self::PATH);
     }

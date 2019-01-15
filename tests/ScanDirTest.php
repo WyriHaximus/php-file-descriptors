@@ -1,19 +1,18 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace WyriHaximus\Tests\FileDescriptors;
 
-use ApiClients\Tools\TestUtilities\TestCase;
+use PHPUnit\Framework\TestCase;
 use WyriHaximus\FileDescriptors\ScanDir;
-use function WyriHaximus\iteratorOrArrayToArray;
 
 /**
  * @internal
  */
 final class ScanDirTest extends TestCase
 {
-    public function testScan(): void
+    public function testScan()
     {
-        $fds = iteratorOrArrayToArray(ScanDir::scan(__DIR__));
+        $fds = ScanDir::scan(__DIR__);
         self::assertCount(4, $fds);
         \sort($fds);
         self::assertSame([

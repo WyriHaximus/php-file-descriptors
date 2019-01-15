@@ -16,12 +16,6 @@ contrib:
 init:
 	composer ensure-installed
 
-cs:
-	composer cs
-
-cs-fix:
-	composer cs-fix
-
 unit:
 	composer run-script unit --timeout=0
 

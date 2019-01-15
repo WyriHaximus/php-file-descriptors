@@ -4,15 +4,13 @@ namespace WyriHaximus\FileDescriptors;
 
 final class Factory
 {
-    private const LISTERS = [
-        ProcSelfFd::class,
-        DevFd::class,
-    ];
-
-    public static function create(): ListerInterface
+    public static function create()
     {
         $lister = null;
-        foreach (self::LISTERS as $listerClass) {
+        foreach ([
+            'WyriHaximus\FileDescriptors\ProcSelfFd',
+            'WyriHaximus\FileDescriptors\DevFd',
+        ] as $listerClass) {
             /** @var ListerInterface $lister */
             $lister = new $listerClass();
             if ($lister->isSupported() === true) {

@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace WyriHaximus\FileDescriptors;
 
@@ -7,7 +7,7 @@ namespace WyriHaximus\FileDescriptors;
  */
 final class ScanDir
 {
-    public static function scan(string $path): iterable
+    public static function scan($path)
     {
         $fds = @\scandir($path, \SCANDIR_SORT_NONE);
 
@@ -15,10 +15,13 @@ final class ScanDir
             throw new \Exception('Unable to list file descriptors: ' . \print_r(\error_get_last(), true));
         }
 
+        $ids = [];
         foreach ($fds as $id) {
             if (!\in_array($id, ['.', '..'], true)) {
-                yield $id;
+                $ids[] = $id;
             }
         }
+
+        return $ids;
     }
 }
