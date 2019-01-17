@@ -20,6 +20,6 @@ final class ProcSelfFdTest extends TestCase
         }
 
         $fds = iteratorOrArrayToArray($psf->list());
-        self::assertTrue(\count($fds) >= 3, 'Assuming to have at least 3 open file descriptors (STDIN, STDOUT, and STDERR)');
+        self::assertGreaterThanOrEqual(3, \count($fds), 'Assuming to have at least 3 open file descriptors (STDIN, STDOUT, and STDERR)');
     }
 }
