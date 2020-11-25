@@ -1,12 +1,11 @@
 # List open file descriptors for the current process cross platform
 
-[![Build Status](https://travis-ci.com/WyriHaximus/php-file-descriptors.svg?branch=master)](https://travis-ci.com/WyriHaximus/php-file-descriptors)
-[![Latest Stable Version](https://poser.pugx.org/WyriHaximus/file-descriptors/v/stable.png)](https://packagist.org/packages/WyriHaximus/file-descriptors)
-[![Total Downloads](https://poser.pugx.org/WyriHaximus/file-descriptors/downloads.png)](https://packagist.org/packages/WyriHaximus/file-descriptors/stats)
+![Continuous Integration](https://github.com/wyrihaximus/php-file-descriptors/workflows/Continuous%20Integration/badge.svg)
+[![Latest Stable Version](https://poser.pugx.org/wyrihaximus/file-descriptors/v/stable.png)](https://packagist.org/packages/wyrihaximus/file-descriptors)
+[![Total Downloads](https://poser.pugx.org/wyrihaximus/file-descriptors/downloads.png)](https://packagist.org/packages/wyrihaximus/file-descriptors/stats)
 [![Code Coverage](https://scrutinizer-ci.com/g/WyriHaximus/php-file-descriptors/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/WyriHaximus/php-file-descriptors/?branch=master)
-[![License](https://poser.pugx.org/WyriHaximus/file-descriptors/license.png)](https://packagist.org/packages/WyriHaximus/file-descriptors)
-[![PHP 7 ready](http://php7ready.timesplinter.ch/WyriHaximus/php-file-descriptors/badge.svg)](https://travis-ci.com/WyriHaximus/php-file-descriptors)
-
+[![Type Coverage](https://shepherd.dev/github/WyriHaximus/php-file-descriptors/coverage.svg)](https://shepherd.dev/github/WyriHaximus/php-file-descriptors)
+[![License](https://poser.pugx.org/wyrihaximus/file-descriptors/license.png)](https://packagist.org/packages/wyrihaximus/file-descriptors)
 
 # Install
 

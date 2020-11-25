@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace WyriHaximus\FileDescriptors;
 
@@ -6,6 +8,8 @@ interface ListerInterface
 {
     /**
      * Return an iterable containing a list of open file descriptors for the current process.
+     *
+     * @return iterable<string>
      */
     public function list(): iterable;
 
