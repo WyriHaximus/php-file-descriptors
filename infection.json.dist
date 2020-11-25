@@ -1,0 +1,16 @@
+{
+    "timeout": 120,
+    "source": {
+        "directories": [
+            "src"
+        ]
+    },
+    "logs": {
+        "text": "infection-log.txt"
+    },
+    "mutators": {
+        "@default": true,
+        "LogicalAnd": false,
+        "Throw_": false
+    }
+}

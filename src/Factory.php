@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace WyriHaximus\FileDescriptors;
 
@@ -13,11 +15,11 @@ final class Factory
     {
         $lister = null;
         foreach (self::LISTERS as $listerClass) {
-            /** @var ListerInterface $lister */
             $lister = new $listerClass();
-            if ($lister->isSupported() === true) {
+            if ($lister->isSupported()) {
                 return $lister;
             }
+
             unset($lister);
         }
 
