@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d2c955daa786cb3395719559e92428a",
+    "content-hash": "bc3c7032401f7d57546f37cdef09fcb7",
     "packages": [
         {
             "name": "tivie/php-os-detector",
@@ -8068,7 +8068,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4"
+        "php": "^8 || ^7.4"
     },
     "platform-dev": [],
     "platform-overrides": {
