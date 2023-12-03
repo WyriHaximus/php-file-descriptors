@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace WyriHaximus\FileDescriptors;
 
 use function in_array;
-use function Safe\scandir;
 
 use const SCANDIR_SORT_NONE;
 
@@ -19,7 +18,7 @@ final class ScanDir
      */
     public static function scan(string $path): iterable
     {
-        $fds = scandir($path, SCANDIR_SORT_NONE);
+        $fds = \scandir($path, SCANDIR_SORT_NONE);
 
         foreach ($fds as $id) {
             if (in_array($id, ['.', '..'], true)) {
